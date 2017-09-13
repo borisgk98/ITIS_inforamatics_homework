@@ -1,0 +1,1 @@
+print(sum([(-1)**i / ((2 * i + 1) ** 2) for i in range(int(input()))])) 
