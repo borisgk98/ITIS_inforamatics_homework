@@ -6,24 +6,40 @@ import java.*;
 
 public class Task12 {
 	public static void main(String Args[]) {
-		Scanner scan = new Scanner(System.in);
-		int n = scan.nextInt();
-		int format_k = 1, nn = n * n;
-		while (nn != 0) {
-			format_k++;
-			nn /= 10;
-		}
-		for (int i = 0; i < format_k; i++)
-			System.out.print(' ');
-		for (int i = 1; i <= n; i++)
-			System.out.print(format(i, format_k));
-		System.out.print('\n');
-		for (int i = 1; i <= n; i++) {
-			System.out.print(format(i, format_k));
-			for (int j = 1; j <= n; j++) {
-				System.out.print(format(i * j, format_k));
+		try {
+			if (Args.length < 1) {
+				System.err.println("Not enought arguments");
+				System.exit(1);		
+			}
+			int n = Integer.parseInt(Args[0]);
+			int format_k = 1, nn = n * n;
+			while (nn != 0) {
+				format_k++;
+				nn /= 10;
+			}
+			for (int i = 0; i < format_k; i++) {
+				System.out.print(' ');
+			}
+			for (int i = 1; i <= n; i++) {
+				System.out.print(format(i, format_k));
 			}
 			System.out.print('\n');
+			for (int i = 1; i <= n; i++) {
+				System.out.print(format(i, format_k));
+				for (int j = 1; j <= n; j++) {
+					System.out.print(format(i * j, format_k));
+				}
+				System.out.print('\n');
+			}
+			System.exit(0);
+		}
+		catch (java.lang.NumberFormatException exc) {
+			System.err.println("Bad arguments");
+			System.exit(1);
+		}
+		finally {
+			System.err.println("Unknown error");
+			System.exit(1);
 		}
 	}
 
