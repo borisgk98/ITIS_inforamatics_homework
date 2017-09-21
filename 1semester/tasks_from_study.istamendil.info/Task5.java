@@ -3,16 +3,27 @@ import java.lang.Math;
 
 public class Task5 {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		System.out.format("Enter n: ");
-		int n = scan.nextInt();
-		System.out.format("Enter x: ");
-		double x = scan.nextDouble();
-		double dp[] = new double[n];
-		dp[0] = x / ((double)(n) + 1);
-		for (int i = 1; i < n; i++) {
-			dp[i] = x / ((double)(n - i + 1) + dp[i-1]);
+		try {
+			if (args.length < 2) {
+				System.err.println("Not enought arguments");
+				System.exit(1);		
+			}
+			int n = Integer.parseInt(args[0]);
+			double x = Double.parseDouble(args[1]);
+			double newValue = x / ((double)(n) + 1);
+			for (int i = 1; i < n; i++) {
+				newValue = x / ((double)(n - i + 1) + newValue);
+			}
+			System.out.format("Result: %.5f\n", newValue + 1);
+			System.exit(0);
 		}
-		System.out.format("Result: %f\n", dp[n-1] + 1);
+		catch (java.lang.NumberFormatException exc) {
+			System.err.println("Bad arguments");
+			System.exit(1);
+		}
+		finally {
+			System.err.println("Unknown error");
+			System.exit(1);
+		}
 	}
 }
