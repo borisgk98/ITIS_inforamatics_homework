@@ -11,7 +11,7 @@ public class Task22 {
 			}
 
 			//simple algorithm
-			long timer1 = System.currentTimeMillis();
+			long timer1 = System.nanoTime();
 			long gcd1 = 1;
 			for (long i = x; i >= 2; i--) {
 				if (x % i == 0 && y % i == 0) {
@@ -21,7 +21,7 @@ public class Task22 {
 			}
 
 			//euclid algorithm
-			long timer2 = System.currentTimeMillis();
+			long timer2 = System.nanoTime();
 			while (x != 0) {
 				y %= x;
 				long c = x;
@@ -29,9 +29,9 @@ public class Task22 {
 				y = c;
 			}
 			
-			long timer3 = System.currentTimeMillis();
+			long timer3 = System.nanoTime();
 			System.out.format("GCD(A, B) = %d\nTime1 (mc): %d\nTime2 (mc): %d\n",
-											y, timer2, timer3);
+											y, timer2 - timer1, timer3 - timer2);
 			System.exit(0);
 		}
 		catch (java.lang.ArrayIndexOutOfBoundsException exc) {
