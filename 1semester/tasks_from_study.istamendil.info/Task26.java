@@ -17,26 +17,24 @@ public class Task26 {
 				System.exit(1);
 			}
 			long maxNum = combination(n, n / 2);
+			System.out.println(maxNum);
 			int formatK = 0;
 			while (maxNum != 0) {
 				formatK++;
 				maxNum /= 10;
 			}
-			int[] v = new int[n];
+			int[] v = new int[n + 1];
 			v[0] = 1;
-			for (int i = 0; i < n; i++) {
+			for (int i = 0; i <= n; i++) {
 				for (int j = 0; j < n - i; j++) {
 					System.out.print(format(0, formatK));
 				}
 				for (int j = 0; j < i + 1; j++) {
 					System.out.print(format(v[j], formatK));
 					System.out.print(format(0, formatK));
-				}
-				for (int j = 0; j < n - i; j++) {
-					System.out.print(format(0, formatK));
-				}
+				}                
 				System.out.println();
-				if (i + 2 >= n) {
+				if (i + 2 >= n + 1) {
 					break;
 				}
 				for (int j = i + 2; j > 0; j--) {

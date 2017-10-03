@@ -25,7 +25,6 @@ public class ArrTest {
 				System.exit(1);
 			}
 			int[] v = new int[n];
-			int p = 0;
 			for (int i = 0; i < n; i++) {
 				try {
 					v[i] = Integer.parseInt(args[i + 1]);
@@ -38,10 +37,26 @@ public class ArrTest {
 					System.err.println("Bad arguments");
 					System.exit(1);
 				}
-				p += v[i];
 			}
-			System.out.println(p);
+			System.out.println(v);
 			for (int el : v) {
+				System.out.printf("%d ", el);
+			}
+			int[] v2 = new int[v.length];
+			for (int i = 0; i < n; i++) {
+				v2[i] = v[i];
+			}
+			System.out.println();
+			System.out.println(v2);
+			for (int el : v2) {
+				System.out.printf("%d ", el);
+			}
+			for (int i = 0; i < n; i++) {
+				v2[i] *= 2;
+			}
+			System.out.println();
+			System.out.println(v2);
+			for (int el : v2) {
 				System.out.printf("%d ", el);
 			}
 			System.exit(0);

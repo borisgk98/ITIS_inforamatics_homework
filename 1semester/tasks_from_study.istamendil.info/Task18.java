@@ -1,4 +1,4 @@
-import java.util.Scanner;
+	import java.util.Scanner;
 import java.math.*;
 
 public class Task18 {
@@ -9,11 +9,11 @@ public class Task18 {
 		long sum = 0;
 		while(a != 0) {
 			int p = a % k;
-			rez += (char)(p > 9 ? p + 'A' - 10 : p + '0');
+			rez = (char)(p > 9 ? p + 'A' - 10 : p + '0') + rez;
 			sum += p;
 			a /= k;
 		}
-		System.out.println(new StringBuffer(rez).reverse());
+		System.out.println(rez);
 		System.out.println(sum);
 	}
 }

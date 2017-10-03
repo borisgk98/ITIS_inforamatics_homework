@@ -30,8 +30,8 @@ public class Task22 {
 			}
 			
 			long timer3 = System.nanoTime();
-			System.out.format("GCD(A, B) = %d\nTime1 (mc): %d\nTime2 (mc): %d\n",
-											y, timer2 - timer1, timer3 - timer2);
+			System.out.format("GCD(A, B) = %d\nTime1 (mc): %f\nTime2 (mc): %f\n",
+											y, (double)(timer2 - timer1) / 1000, (double)(timer3 - timer2) / 1000);
 			System.exit(0);
 		}
 		catch (java.lang.ArrayIndexOutOfBoundsException exc) {
