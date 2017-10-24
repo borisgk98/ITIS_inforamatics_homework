@@ -7,8 +7,8 @@ public class Task24 {
         int d = scan.nextInt();
         final double eps = 0.2;
         for (int x = 0; x <= d; x++) {
-            for (int y = 0; y <= d; y++) {
-                if (sqr((double)x - d / 2) + sqr((double)y - d / 2) <= sqr((double)d / 2 + eps))
+            for (int y = 0; y <= 2*d; y++) {
+                if (sqr((double)x - d / 2) + sqr((double)y / 2 - d / 2) <= sqr((double)d / 2 + eps))
                     System.out.print("*");
                 else {
                     System.out.print(" ");

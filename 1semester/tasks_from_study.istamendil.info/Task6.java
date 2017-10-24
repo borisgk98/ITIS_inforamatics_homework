@@ -17,6 +17,10 @@ public class Task6 {
 				System.err.println("Bad arguments");
 				System.exit(1);
 			}
+			if (n < 1) {
+				System.err.println("Bad arguments");
+				System.exit(1);
+			}
 			BigDecimal rez = new BigDecimal(0f);
 			rez.setScale(10, BigDecimal.ROUND_DOWN);
 			for (int m = 1; m <= n; m++) {
