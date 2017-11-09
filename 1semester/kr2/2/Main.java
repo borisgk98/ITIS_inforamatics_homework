@@ -6,10 +6,7 @@ public class Main {
         String str = scan.next();
         char ch = scan.next().charAt(0);
         int[] rez = split(str, ch);
-        System.out.println(split(str, ch));
-        for (int el : rez) {
-            System.out.println(el);
-        }
+        System.out.println(toStr(split(str, ch)));
     }
 
     public static int[] split(String str, char ch) {
@@ -17,7 +14,7 @@ public class Main {
     }
 
     public static int[] split(char[] str, char ch) {
-        int arrSize = 0;
+        int arrSize = 1;
         for (int i = 0; i < str.length - 1; i++) {
             if (str[i] != ch && (str[i + 1] == ch || i == str.length - 2)) {
                 arrSize++;
@@ -37,6 +34,9 @@ public class Main {
             }
             StringBuilder strB = new StringBuilder();
             for (int j = r - 1; j >= l; j--) {
+                if (str[j] < '0' || str[j] > '9') {
+                    throw new java.lang.NumberFormatException();
+                }
                 strB.append(str[j]);
             }
             rez[iter] = toInt(strB.toString());
@@ -47,6 +47,15 @@ public class Main {
             }
         }
         return rez;
+    }
+
+    public static String toStr(int[] v) {
+        StringBuilder sB = new StringBuilder();
+        for (int el : v) {
+            sB.append(el);
+            sB.append(' ');
+        }
+        return sB.toString();
     }
 
     public static int toInt(String str) {
